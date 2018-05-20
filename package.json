@@ -1,0 +1,23 @@
+{
+  "name": "customer-week",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "main": "index.js",
+  "dependencies": {
+    "react": "16.3.2",
+    "react-dom": "16.3.2",
+    "react-google-maps": "9.4.3",
+    "recompose": "0.26.0",
+    "semantic-ui-css": "2.3.1",
+    "semantic-ui-react": "0.80.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "now-start": "serve build/",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
