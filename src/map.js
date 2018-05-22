@@ -85,14 +85,14 @@ export const MyMapComponent = compose(
       WednesdayDirection.route(
         {
           origin: { lat: 60.406262, lng: 5.3201295 },
-          destination: { lat: 60.4014446, lng: 5.3133913 },
+          destination: { lat: 60.3854768, lng: 5.3305841 },
           waypoints: [
             {
               location: { lat: 60.3994968, lng: 5.3091189 },
               stopover: true
             },
             {
-              location: { lat: 60.3875797, lng: 5.3325806 },
+              location: { lat: 60.4014446, lng: 5.3133913 },
               stopover: true
             }
           ],
@@ -136,9 +136,13 @@ export const MyMapComponent = compose(
       );
       FridayDirection.route(
         {
-          origin: { lat: 60.3809264, lng: 5.3270575 },
+          origin: { lat: 60.3875797, lng: 5.3325806 },
           destination: { lat: 60.3812588, lng: 5.3298212 },
           waypoints: [
+            {
+              location: { lat: 60.3809264, lng: 5.3270575 },
+              stopover: true
+            },
             {
               location: { lat: 60.4000426, lng: 5.3019483 },
               stopover: true
@@ -255,15 +259,7 @@ export const MyMapComponent = compose(
               time="Wednesday 12:00-14:30"
               color="blue"
             />
-            <Marker
-              name="7. Thommessen"
-              logo="https://www.dnjobb.no/getasset/1f8425b7-48cd-4c23-b3e1-a3e681dde117/"
-              lat={60.3875797}
-              lng={5.3325806}
-              location="Vestre Strømkaien 7"
-              time="Wednesday 14:00-15:00"
-              color="blue"
-            />
+
             <Marker
               name="8. Lerøy"
               logo="https://www.leroyseafood.com/content/img/logo.png"
@@ -271,6 +267,15 @@ export const MyMapComponent = compose(
               lng={5.3133913}
               location="Bontelabo 2"
               time="Wednesday 15:30-17:00"
+              color="blue"
+            />
+            <Marker
+              name="9. Kverva Tech Invest"
+              logo="https://media.licdn.com/media-proxy/ext?w=800&h=800&hash=KKReL10riibjkQTxxD7RWyY6Nm4%3D&ora=1%2CaFBCTXdkRmpGL2lvQUFBPQ%2CxAVta5g-0R6jnhodx1Ey9KGTqAGj6E5DQJHUA3L0CHH05IbfPWjtccDXeOb18kASe31XjQBnfO21SDbpE465Io26dY4ii5e0cpP5aRUPbhU4hGUB_N88"
+              lat={60.3854768}
+              lng={5.3305841}
+              location="Lars Hillers Gate"
+              time="Wednesday 17:45-19:00"
               color="blue"
             />
           </Fragment>
@@ -296,20 +301,20 @@ export const MyMapComponent = compose(
               time="Thursday 12:30-15:00"
               color="blue"
             />
-            <Marker
-              name="11. Kverva Tech Invest"
-              logo="https://media.licdn.com/media-proxy/ext?w=800&h=800&hash=KKReL10riibjkQTxxD7RWyY6Nm4%3D&ora=1%2CaFBCTXdkRmpGL2lvQUFBPQ%2CxAVta5g-0R6jnhodx1Ey9KGTqAGj6E5DQJHUA3L0CHH05IbfPWjtccDXeOb18kASe31XjQBnfO21SDbpE465Io26dY4ii5e0cpP5aRUPbhU4hGUB_N88"
-              lat={60.3854768}
-              lng={5.3305841}
-              location="Lars Hillers Gate"
-              time="Thursday 15:30-17:00"
-              color="blue"
-            />
           </Fragment>
         )}
         {props.visible === "friday" && (
           <Fragment>
             <DirectionsRenderer directions={props.fridayDirections} />
+            <Marker
+              name="11. Thommessen"
+              logo="https://www.dnjobb.no/getasset/1f8425b7-48cd-4c23-b3e1-a3e681dde117/"
+              lat={60.3875797}
+              lng={5.3325806}
+              location="Vestre Strømkaien 7"
+              time="Wednesday 09:00-10:00"
+              color="green"
+            />
             <Marker
               name="12. Salmon Group"
               logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnjEh_mhLTlNfJD2COPExj4Q35wTAzy6aX5DLJGSxCW4IkiaNC"
