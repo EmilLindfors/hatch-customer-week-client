@@ -7,15 +7,12 @@ import {
   DirectionsRenderer
 } from "react-google-maps";
 import { MarkerWithLabel } from "react-google-maps/lib/components/addons/MarkerWithLabel";
-import { Card, Icon, Image } from "semantic-ui-react";
+import { Card, Image } from "semantic-ui-react";
 
 const Marker = ({ lat, lng, logo, name, time, location, color }) => (
   <MarkerWithLabel
     icon="majs"
     labelAnchor={{ lat: lat, lng: lng }}
-    labelStyle={{
-      backgroundColor: "transparent"
-    }}
     position={{ lat: lat, lng: lng }}
   >
     <Card color={color} fluid>
@@ -28,91 +25,6 @@ const Marker = ({ lat, lng, logo, name, time, location, color }) => (
     </Card>
   </MarkerWithLabel>
 );
-
-const getRoute = name => {
-  switch (name) {
-    case name === "tuesday":
-      return {
-        origin: { lat: 60.382121, lng: 5.328606 },
-        destination: { lat: 60.3813513, lng: 5.3269174 },
-        waypoints: [
-          {
-            location: { lat: 60.4155967, lng: 5.314902 },
-            stopover: true
-          },
-          {
-            location: { lat: 60.3958952, lng: 5.3166018 },
-            stopover: true
-          }
-        ],
-        travelMode: google.maps.TravelMode.WALKING
-      };
-      break;
-    case name === "wednesday":
-      return {
-        origin: { lat: 60.406262, lng: 5.3201295 },
-        destination: { lat: 60.4014446, lng: 5.3133913 },
-        waypoints: [
-          {
-            location: { lat: 60.3994968, lng: 5.3091189 },
-            stopover: true
-          },
-          {
-            location: { lat: 60.3875797, lng: 5.3325806 },
-            stopover: true
-          }
-        ],
-        travelMode: google.maps.TravelMode.WALKING
-      };
-      break;
-    case name === "thursday":
-      return {
-        origin: { lat: 60.386839, lng: 5.3303004 },
-        destination: { lat: 60.3854768, lng: 5.3305841 },
-        waypoints: [
-          {
-            location: { lat: 60.3235893, lng: 5.3696218 },
-            stopover: true
-          }
-        ],
-        travelMode: google.maps.TravelMode.WALKING
-      };
-      break;
-    case name === "friday":
-      return {
-        origin: { lat: 60.4020948, lng: 5.3180311 },
-        destination: { lat: 60.3812588, lng: 5.3298212 },
-        waypoints: [
-          {
-            location: { lat: 60.4000426, lng: 5.3019483 },
-            stopover: true
-          },
-          {
-            location: { lat: 60.382121, lng: 5.328606 },
-            stopover: true
-          }
-        ],
-        travelMode: google.maps.TravelMode.WALKING
-      };
-      break;
-    default:
-      return {
-        origin: { lat: 60.382121, lng: 5.328606 },
-        destination: { lat: 60.3813513, lng: 5.3269174 },
-        waypoints: [
-          {
-            location: { lat: 60.4155967, lng: 5.314902 },
-            stopover: true
-          },
-          {
-            location: { lat: 60.3958952, lng: 5.3166018 },
-            stopover: true
-          }
-        ],
-        travelMode: google.maps.TravelMode.WALKING
-      };
-  }
-};
 
 export const MyMapComponent = compose(
   withProps({
@@ -131,10 +43,15 @@ export const MyMapComponent = compose(
   withGoogleMap,
   lifecycle({
     componentDidMount() {
+      // eslint-disable-next-line
       const TuesdayDirection = new google.maps.DirectionsService();
+      // eslint-disable-next-line
       const WednesdayDirection = new google.maps.DirectionsService();
+      // eslint-disable-next-line
       const ThursdayDirection = new google.maps.DirectionsService();
+      // eslint-disable-next-line
       const FridayDirection = new google.maps.DirectionsService();
+      // eslint-disable-next-line
       const MondayDirection = new google.maps.DirectionsService();
 
       TuesdayDirection.route(
@@ -143,7 +60,7 @@ export const MyMapComponent = compose(
           destination: { lat: 60.3813513, lng: 5.3269174 },
           waypoints: [
             {
-              location: { lat: 60.4155967, lng: 5.314902 },
+              location: { lat: 60.3946327, lng: 5.3216031 },
               stopover: true
             },
             {
@@ -151,9 +68,11 @@ export const MyMapComponent = compose(
               stopover: true
             }
           ],
+          // eslint-disable-next-line
           travelMode: google.maps.TravelMode.WALKING
         },
         (result, status) => {
+          // eslint-disable-next-line
           if (status === google.maps.DirectionsStatus.OK) {
             this.setState({
               tuesdayDirections: result
@@ -177,9 +96,11 @@ export const MyMapComponent = compose(
               stopover: true
             }
           ],
+          // eslint-disable-next-line
           travelMode: google.maps.TravelMode.WALKING
         },
         (result, status) => {
+          // eslint-disable-next-line
           if (status === google.maps.DirectionsStatus.OK) {
             this.setState({
               wednesdayDirections: result
@@ -199,9 +120,11 @@ export const MyMapComponent = compose(
               stopover: true
             }
           ],
+          // eslint-disable-next-line
           travelMode: google.maps.TravelMode.DRIVING
         },
         (result, status) => {
+          // eslint-disable-next-line
           if (status === google.maps.DirectionsStatus.OK) {
             this.setState({
               thursdayDirections: result
@@ -221,13 +144,19 @@ export const MyMapComponent = compose(
               stopover: true
             },
             {
-              location: { lat: 60.382121, lng: 5.328606 },
+              location: { lat: 60.3810616, lng: 5.3277783 },
+              stopover: true
+            },
+            {
+              location: { lat: 60.3810566, lng: 5.3267273 },
               stopover: true
             }
           ],
+          // eslint-disable-next-line
           travelMode: google.maps.TravelMode.WALKING
         },
         (result, status) => {
+          // eslint-disable-next-line
           if (status === google.maps.DirectionsStatus.OK) {
             this.setState({
               fridayDirections: result
@@ -241,9 +170,11 @@ export const MyMapComponent = compose(
         {
           origin: { lat: 60.3812588, lng: 5.3298212 },
           destination: { lat: 60.3383078, lng: 5.2434823 },
+          // eslint-disable-next-line
           travelMode: google.maps.TravelMode.DRIVING
         },
         (result, status) => {
+          // eslint-disable-next-line
           if (status === google.maps.DirectionsStatus.OK) {
             this.setState({
               mondayDirections: result
@@ -271,16 +202,16 @@ export const MyMapComponent = compose(
               lat={60.382121}
               lng={5.328606}
               location="Hatch Office"
-              time="Monday: 11:30-12:30"
+              time="Tuesday: 10:00-11:00"
               color="red"
             />
             <Marker
-              name="2. Marine Harvest"
-              logo="http://marineharvest.no/Content/Images/logo.png"
-              lat={60.4155967}
-              lng={5.314902}
-              location="Sandviksbodene 77A"
-              time="Monday: 11:30-12:30"
+              name="2. FishMe"
+              logo="http://fishme.no/assets/i/fishme.png"
+              lat={60.3946327}
+              lng={5.3216031}
+              location="Torghallen, Strandkaien 3"
+              time="Tuesday: 12:00-13:00"
               color="red"
             />
             <Marker
@@ -289,7 +220,7 @@ export const MyMapComponent = compose(
               lat={60.3958952}
               lng={5.3166018}
               location="C. Sundts gate 17"
-              time="Monday: 13:00-15:00"
+              time="Tuesday: 13:00-15:00"
               color="red"
             />
             <Marker
@@ -298,7 +229,7 @@ export const MyMapComponent = compose(
               lat={60.3813513}
               lng={5.3269174}
               location="Hatch Office"
-              time="Monday 16:00-17:00"
+              time="Tuesday 16:00-17:00"
               color="red"
             />
           </Fragment>
@@ -312,7 +243,7 @@ export const MyMapComponent = compose(
               lat={60.406262}
               lng={5.3201295}
               location="Sjøgaten 3A"
-              time="Tuesday 09:00-10:30"
+              time="Wednesday 09:00-10:30"
               color="blue"
             />
             <Marker
@@ -321,7 +252,7 @@ export const MyMapComponent = compose(
               lat={60.3994968}
               lng={5.3091189}
               location="Tollbodallmenningen 1B"
-              time="Tuesday 11:00-13:30"
+              time="Wednesday 12:00-14:30"
               color="blue"
             />
             <Marker
@@ -409,10 +340,19 @@ export const MyMapComponent = compose(
             <Marker
               name="15. MSD Animal Health"
               logo="https://pbs.twimg.com/profile_images/871776672864804865/E6_Eo7tK_400x400.jpg"
-              lat={60.3812588}
-              lng={5.3298212}
-              location="Thormøhlens Gate 55"
+              lat={60.3810616}
+              lng={5.3277783}
+              location="Hatch Office"
               time="Friday: 13:30-14:30"
+              color="green"
+            />
+            <Marker
+              name="16. NCE Media"
+              logo="https://static1.squarespace.com/static/599605d5f9a61e19fde4acc0/t/59a12a1fff7c506488cb495a/1503734312031/NCE+Media.png?format=300w"
+              lat={60.3810566}
+              lng={5.3267273}
+              location="Hatch Office"
+              time="Friday: 14:30-16:00"
               color="green"
             />
           </Fragment>
@@ -421,7 +361,7 @@ export const MyMapComponent = compose(
           <Fragment>
             <DirectionsRenderer directions={props.mondayDirections} />
             <Marker
-              name="16. Pharmaq Analytic"
+              name="17. Pharmaq Analytic"
               logo="https://www.pharmaq-analytiq.com/sfiles/0/5/picture/pharmaq_analytiq-org-adl.png"
               lat={60.3812588}
               lng={5.3298212}
@@ -430,7 +370,7 @@ export const MyMapComponent = compose(
               color="teal"
             />
             <Marker
-              name="17. Nofima"
+              name="18. Nofima"
               logo="https://pbs.twimg.com/profile_images/347502899/nofima_rgb_hoy.jpg"
               lat={60.3383078}
               lng={5.2434823}
