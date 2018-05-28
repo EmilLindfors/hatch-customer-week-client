@@ -112,11 +112,11 @@ export const MyMapComponent = compose(
       );
       ThursdayDirection.route(
         {
-          origin: { lat: 60.386839, lng: 5.3303004 },
-          destination: { lat: 60.3854768, lng: 5.3305841 },
+          origin: { lat: 60.3875797, lng: 5.3325806 },
+          destination: { lat: 60.3235893, lng: 5.3696218 },
           waypoints: [
             {
-              location: { lat: 60.3235893, lng: 5.3696218 },
+              location: { lat: 60.386839, lng: 5.3303004 },
               stopover: true
             }
           ],
@@ -136,23 +136,15 @@ export const MyMapComponent = compose(
       );
       FridayDirection.route(
         {
-          origin: { lat: 60.3875797, lng: 5.3325806 },
-          destination: { lat: 60.3812588, lng: 5.3298212 },
+          origin: { lat: 60.3809264, lng: 5.3270575 },
+          destination: { lat: 60.3810566, lng: 5.3267273 },
           waypoints: [
-            {
-              location: { lat: 60.3809264, lng: 5.3270575 },
-              stopover: true
-            },
             {
               location: { lat: 60.4000426, lng: 5.3019483 },
               stopover: true
             },
             {
               location: { lat: 60.3810616, lng: 5.3277783 },
-              stopover: true
-            },
-            {
-              location: { lat: 60.3810566, lng: 5.3267273 },
               stopover: true
             }
           ],
@@ -172,10 +164,26 @@ export const MyMapComponent = compose(
       );
       MondayDirection.route(
         {
-          origin: { lat: 60.3812588, lng: 5.3298212 },
+          origin: { lat: 60.3810566, lng: 5.3267273 },
           destination: { lat: 60.3383078, lng: 5.2434823 },
+          waypoints: [
+            {
+              location: {
+                lat: 60.3812588,
+                lng: 5.3298212
+              },
+              stopover: true
+            },
+            {
+              location: {
+                lat: 60.3810616,
+                lng: 5.3277783
+              },
+              stopover: true
+            }
+          ],
           // eslint-disable-next-line
-          travelMode: google.maps.TravelMode.DRIVING
+          travelMode: google.maps.TravelMode.WALKING
         },
         (result, status) => {
           // eslint-disable-next-line
@@ -261,7 +269,7 @@ export const MyMapComponent = compose(
             />
 
             <Marker
-              name="8. Lerøy"
+              name="7. Lerøy"
               logo="https://www.leroyseafood.com/content/img/logo.png"
               lat={60.4014446}
               lng={5.3133913}
@@ -270,7 +278,7 @@ export const MyMapComponent = compose(
               color="blue"
             />
             <Marker
-              name="9. Kverva Tech Invest"
+              name="8. Kverva Tech Invest"
               logo="https://media.licdn.com/media-proxy/ext?w=800&h=800&hash=KKReL10riibjkQTxxD7RWyY6Nm4%3D&ora=1%2CaFBCTXdkRmpGL2lvQUFBPQ%2CxAVta5g-0R6jnhodx1Ey9KGTqAGj6E5DQJHUA3L0CHH05IbfPWjtccDXeOb18kASe31XjQBnfO21SDbpE465Io26dY4ii5e0cpP5aRUPbhU4hGUB_N88"
               lat={60.3854768}
               lng={5.3305841}
@@ -284,7 +292,16 @@ export const MyMapComponent = compose(
           <Fragment>
             <DirectionsRenderer directions={props.thursdayDirections} />
             <Marker
-              name="9. Hordaland County"
+              name="9. Thommessen"
+              logo="https://www.dnjobb.no/getasset/1f8425b7-48cd-4c23-b3e1-a3e681dde117/"
+              lat={60.3875797}
+              lng={5.3325806}
+              location="Vestre Strømkaien 7"
+              time="Thursday 09:00-10:30"
+              color="green"
+            />
+            <Marker
+              name="10. Hordaland County"
               logo="http://www.olympiatoppen.no/image34601-900x0.jpg"
               lat={60.386839}
               lng={5.3303004}
@@ -293,7 +310,7 @@ export const MyMapComponent = compose(
               color="blue"
             />
             <Marker
-              name="10. Anderaa Data Instruments"
+              name="11. Anderaa Data Instruments"
               logo="https://www.environmental-expert.com/files/8924/images/download1-400.jpg"
               lat={60.3235893}
               lng={5.3696218}
@@ -306,15 +323,6 @@ export const MyMapComponent = compose(
         {props.visible === "friday" && (
           <Fragment>
             <DirectionsRenderer directions={props.fridayDirections} />
-            <Marker
-              name="11. Thommessen"
-              logo="https://www.dnjobb.no/getasset/1f8425b7-48cd-4c23-b3e1-a3e681dde117/"
-              lat={60.3875797}
-              lng={5.3325806}
-              location="Vestre Strømkaien 7"
-              time="Wednesday 09:00-10:00"
-              color="green"
-            />
             <Marker
               name="12. Salmon Group"
               logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnjEh_mhLTlNfJD2COPExj4Q35wTAzy6aX5DLJGSxCW4IkiaNC"
@@ -366,7 +374,16 @@ export const MyMapComponent = compose(
           <Fragment>
             <DirectionsRenderer directions={props.mondayDirections} />
             <Marker
-              name="17. Pharmaq Analytic"
+              name="17. Akva Group"
+              logo="https://ndla.no/sites/default/files/images/ag_logo_black.png"
+              lat={60.3810566}
+              lng={5.3267273}
+              location="Hatch Office"
+              time="Monday 09:00-11:00"
+              color="teal"
+            />
+            <Marker
+              name="18. Pharmaq Analytic"
               logo="https://www.pharmaq-analytiq.com/sfiles/0/5/picture/pharmaq_analytiq-org-adl.png"
               lat={60.3812588}
               lng={5.3298212}
@@ -375,7 +392,16 @@ export const MyMapComponent = compose(
               color="teal"
             />
             <Marker
-              name="18. Nofima"
+              name="19. DNB"
+              logo="http://www.stavernfestivalen.no/wp-content/uploads/2018/01/dnb-logo-300x154.png"
+              lat={60.3810616}
+              lng={5.3277783}
+              location="Hatch Office"
+              time="Monday 13:00-14:00"
+              color="teal"
+            />
+            <Marker
+              name="20. Nofima"
               logo="https://pbs.twimg.com/profile_images/347502899/nofima_rgb_hoy.jpg"
               lat={60.3383078}
               lng={5.2434823}

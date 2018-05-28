@@ -115,7 +115,7 @@ class App extends React.PureComponent {
               color="teal"
               onClick={() => this.handleItemClick("monday")}
             >
-              Show Monday
+              Monday
             </Button>
           </Menu>
         </Responsive>
