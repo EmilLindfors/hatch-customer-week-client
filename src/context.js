@@ -8,17 +8,20 @@ class MyProvider extends React.Component {
     tuesday: true,
     wednesday: false,
     thursday: false,
-    friday: false
+    friday: false,
+    showMenu: false
   };
 
   toggle = name => this.setState({ [name]: !name });
+  toggleMenu = () => this.setState({ showMenu: !showMenu });
 
   render() {
     return (
       <MyContext.Provider
         value={{
           state: this.state,
-          toggle: name => this.toggle(name)
+          toggle: name => this.toggle(name),
+          toggleMenu: this.toggleMenu
         }}
       >
         {this.props.children}
